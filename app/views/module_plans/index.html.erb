@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Module plans</h1>
+
+<div id="module_plans">
+  <% @module_plans.each do |module_plan| %>
+    <%= render module_plan %>
+    <p>
+      <%= link_to "Show this module plan", module_plan %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New module plan", new_module_plan_path %>
