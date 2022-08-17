@@ -1,14 +1,31 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Courses</h1>
-
-<div id="courses">
-  <% @courses.each do |course| %>
-    <%= render course %>
-    <p>
-      <%= link_to "Show this course", course %>
-    </p>
-  <% end %>
+<div class="container text-center">
+  
+  <h1 class="text-center">Cursos</h1>
+  
+  <table class="table table-bordered border-dark">
+      <thead>
+          <tr class="inline-block">
+              <th>ID Curso</th>
+              <th>Fecha Inicio</th>
+              <th>Fecha Término</th>
+              <th>Region</th>
+              <th>Detalles</th>
+          </tr>
+      </thead>
+      <tbody>
+          <% @courses.each do |course| %>
+              <tr>
+                  <td><%= course.code %></td>
+                  <td><%= course.start_date %></td>
+                  <td><%= course.end_date %></td>
+                  <td><%= course.region.name %></td>
+                  <td class="d-flex justify-content-evenly">
+                  <%= link_to "Ver", course, class:"btn btn-dark"%>
+                  </td>
+              </tr>
+          <% end %>
+      </tbody>
+  </table>
+  
+  <%= link_to "New course", new_course_path, class:"btn btn-dark mb-3" %>
 </div>
-
-<%= link_to "New course", new_course_path %>

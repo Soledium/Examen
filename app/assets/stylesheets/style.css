@@ -14,3 +14,24 @@
  *= require_self
  */
 
+.navbar-image {
+    width: 100px;
+    height: auto;
+}
+
+.navbar-title {
+    height: 70px;
+    width: auto;
+}
+
+.foo {
+    height: 100px;
+    width:cover;
+}
+
+.logo-footer {
+    width: 120px;
+    height: auto;
+    background-color: black;
+    /* align-content: center; */
+}

@@ -11,26 +11,33 @@
   </head>
 
   <body>
-    <div class="color-text">
+    <div class="/">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand mx-5" href="#">Navbar</a>
+        <div class="container">
+          <a class="navbar-brand" href="#"></a>
+          <p> <%= image_tag "logo-red", class:"navbar-image mt-3" %> </p>
+          <p> <%= image_tag "title-white", class:"navbar-title mt-3" %> </p>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="#">Estudiantes</a>
-              <a class="nav-link" href="#">Planes</a>
-              <a class="nav-link" href="#">Cursos</a>
+            <div class="navbar-nav ms-auto">
+              <a class="nav-link active" aria-current="page" href="/courses">Cursos</a>
+              <a class="nav-link active" href="/students">Estudiantes</a>
+              <a class="nav-link active" href="/regions/index">Regiones</a>
             </div>
           </div>
         </div>
       </nav>
     </div>
 
-    <div class="container"><%= yield %>
+    <div class="container"><%= yield %>  </div>
     
+  <footer class="foo bg-dark text-center">
+    <%= image_tag "logo-all", class:"logo-footer" %>
+  </footer>
+
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
   </body>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  root 'courses#index'
   get 'regions/index'
+  
   resources :students
   resources :courses
   resources :states
