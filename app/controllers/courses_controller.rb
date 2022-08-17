@@ -3,6 +3,7 @@ class CoursesController < ApplicationController
 
   # GET /courses or /courses.json
   def index
+    @students = Student.all
     @courses = Course.all
   end
 
@@ -65,6 +66,6 @@ class CoursesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def course_params
-      params.require(:course).permit(:start_date, :end_date, :training_plan_id, :state_id)
+      params.require(:course).permit(:start_date, :end_date, :training_plan_id, :region_id)
     end
 end

@@ -1,14 +1,50 @@
-<p style="color: green"><%= notice %></p>
+<div class="container text-center">
+<h1 class=" cambio mt-5 mb-5">Listado de Estudiantes</h1>
 
-<h1>Students</h1>
-
-<div id="students">
-  <% @students.each do |student| %>
-    <%= render student %>
-    <p>
-      <%= link_to "Show this student", student %>
-    </p>
-  <% end %>
+<div class="container">
+    <%= search_form_for @q do |f| %>
+    <div class="d-flex align-items-center bg-white rounded-top p-3">
+    <div class="col-3 me-3">
+        <%= f.label :region_name_cont, 'Region', :class => 'form-label d-block p-0 m-0 fw-bold' %>
+        <%= f.select :region_name_cont, options_for_select(@regions.map { |r| [r.name]}), {:include_blank => "Elige una region"}, {:class => 'form-select'} %>
+        </div>
+        <div class="col-3">
+        <%= f.label :course_code_eq, "Curso", :class => 'form-label d-block p-0 m-0 fw-bold' %>
+        <%= f.select :course_code_eq, options_for_select(@courses.map { |c| [c.code]}), {:include_blank => "Elige un curso"}, {:class => 'form-select'} %>
+        </div>
+        <div class="ms-3 align-self-end">
+        <%= f.submit "Filtrar", {:class => 'btn btn-dark'} %>
+        </div>
+    </div>
+    <% end %>
 </div>
 
-<%= link_to "New student", new_student_path %>
+
+<table class="table table-bordered border-dark">
+    <thead>
+        <tr class="inline-block ">
+            <th>ID Estudiante</th>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Region</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @students.each do |student| %>
+            <tr>
+                <td><%= student.id %></td>
+                <td><%= student.name %></td>
+                <td><%= student.address %></td>
+                <td><%= student.region_id %></td>
+                <td class="d-flex justify-content-evenly">
+                <%= link_to "Show", student, class:"btn btn-dark"%>
+                <%= link_to "Editar", edit_student_path(student), class: "btn btn-dark" %>
+                <%= button_to "Eliminar", student, method: :delete, data: {confirm: "Seguro?"}, class: "btn btn-danger" %>
+                <%# link_to "Eliminar", student, data: {"turbo_method": :delete}, class:"btn btn-danger" %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+<%= link_to "New student", new_student_path, class: "btn btn-dark" %>

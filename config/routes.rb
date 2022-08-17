@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
+  get 'regions/index'
   resources :students
-  resources :tutorial_module_courses
   resources :courses
-  resources :module_plans
-  resources :tutors
   resources :states
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -1,6 +1,54 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @student %>
+<div id="<%= dom_id @student %>">
+  <p>
+    <strong>Rut:</strong>
+    <%= @student.rut %>
+  </p>
+
+  <p>
+    <strong>Nombre:</strong>
+    <%= @student.name %>
+  </p>
+
+  <p>
+    <strong>Apellido Paterno:</strong>
+    <%= @student.last_name1 %>
+  </p>
+
+  <p>
+    <strong>Apellido Materno:</strong>
+    <%= @student.last_name2 %>
+  </p>
+
+  <p>
+    <strong>Dirección:</strong>
+    <%= @student.address %>
+  </p>
+
+  <p>
+    <strong>Region:</strong>
+    <%= @student.region_id %>
+  </p>
+
+  <p>
+    <strong>Course:</strong>
+    <%= @student.course_id %>
+  </p>
+
+   <p>
+    <strong>Fecha Inicio:</strong>
+    <%=@student.course.start_date %>
+  </p>
+
+  <p>
+    <strong>Fecha Término:</strong>
+    <%= @student.course.end_date %>
+  </p>
+
+
+
+</div>
 
 <div>
   <%= link_to "Edit this student", edit_student_path(@student) %> |

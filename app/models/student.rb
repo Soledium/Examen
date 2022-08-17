@@ -1,4 +1,5 @@
 class Student < ApplicationRecord
-  belongs_to :state
+  belongs_to :region
   belongs_to :course
+
 end

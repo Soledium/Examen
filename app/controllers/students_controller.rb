@@ -3,7 +3,10 @@ class StudentsController < ApplicationController
 
   # GET /students or /students.json
   def index
-    @students = Student.all
+    @q = Student.ransack(params[:q])
+    @students = @q.result(:distinct => true).includes(:course, :region)
+    @courses = Course.all
+    @regions = Region.all
   end
 
   # GET /students/1 or /students/1.json
@@ -65,6 +68,7 @@ class StudentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def student_params
-      params.require(:student).permit(:rut, :name, :last_name1, :last_name2, :address, :state_id, :course_id)
+      params.require(:student).permit(:rut, :name, :last_name1, :last_name2, :address, :region_id, :course_id)
     end
+
 end

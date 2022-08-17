@@ -1,2 +1,0 @@
-class Moduule < ApplicationRecord
-end
