@@ -23,6 +23,6 @@ Things you may want to cover:
 
 * ...
 
-Las imagenes de cada query están como archivo png nombradas por orden, además el archivo sql está debajo con el nombre examen.
+Las imagenes de cada query están como archivo png nombradas por orden junto al arcjhivo student_age.rb en la carpeta "requerimientos"
 # Examen
 # Examen
